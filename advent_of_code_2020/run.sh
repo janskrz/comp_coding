@@ -6,13 +6,14 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-codefile=`printf "p_%03d.cpp" $1`
+codefile=`printf "day_%03s.cpp" $1 | tr ' ' 0`
 if [ -f "$codefile" ]; then
     echo "Running C++ solution!"
     g++ $codefile -O3 -std=c++2a && ./a.out $1
 fi
 
-codefile=`printf "p_%03d.erl" $1`
+codefile=`printf "day_%03s.erl" $1 | tr ' ' 0`
+echo $codefile
 if [ -f "$codefile" ]; then
     echo "Running Erlang solution!"
     erlc run_solution.erl && erl -noshell -s run_solution run_solution $1
