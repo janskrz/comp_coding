@@ -4,11 +4,8 @@ k = 10 ** 8
 n = 10 ** 16
 MOD = 1000000007
 
-############## stolen code from https://grocid.net/2012/07/02/quick-and-dirty-way-to-calculate-large-binomial-coefficients-in-python/
-############## to calculate (N choose K) mod MOD
 
 pre_computed = {}
-sqrt_mod = int(sqrt(MOD))
 def factorial(x):
 	r = x % 4
 	if r == 0: return pre_computed[x]
